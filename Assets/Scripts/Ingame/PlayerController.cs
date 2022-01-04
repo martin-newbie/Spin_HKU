@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+
+    [SerializeField] Image HPbar;
+
     public Renderer m_Renderer;
     public float hp = 100;
 
@@ -14,7 +18,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        
+        HPbar.fillAmount = hp / 100;
+
+        if (hp <= 0) GameManager.Instance.state = GameState.GameOver;
     }
 
     private void OnTriggerEnter(Collider other)

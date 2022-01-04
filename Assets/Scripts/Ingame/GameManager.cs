@@ -62,12 +62,14 @@ public class GameManager : Singleton<GameManager>
                 break;
             case GameState.GameOver:
                 GameOverObj.SetActive(true);
-                GameResult.text = "Your Score: "+((int)score).ToString() + "s";
+                GameResult.text = "Your Score: " + ((int)score).ToString() + "s";
 
-                if(StatusManager.Instance.best_record < score)
+                if (StatusManager.Instance.best_record < score)
                 {
                     BestScoreImg.gameObject.SetActive(true);
+                    StatusManager.Instance.best_record = score;
                 }
+                object_movespeed = 0;
                 break;
             case GameState.GamePaused:
                 break;
@@ -86,7 +88,7 @@ public class GameManager : Singleton<GameManager>
             randKind++;
             yield return new WaitForSeconds(spawnTime);
 
-            if(randKind % rand == 0)
+            if (randKind % rand == 0)
             {
                 int randcnt = Random.Range(0, object_materials.Length);
                 player.m_Renderer.material = object_materials[randcnt];
