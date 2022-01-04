@@ -11,10 +11,14 @@ public class TitleUIManager : MonoBehaviour
     [SerializeField] Slider background_volume_slider;
     [SerializeField] Slider effect_volume_slider;
 
+    [Header("Description")]
+    [SerializeField] GameObject DescObject;
+
     void Start()
     {
         InitializeValue();
         ExitSetting();
+        ExitDesc();
     }
 
     void Update()
@@ -47,5 +51,15 @@ public class TitleUIManager : MonoBehaviour
     {
         SetVolume();
         SettingObject.SetActive(false);
+    }
+
+    public void EnterDesc()
+    {
+        DescObject.SetActive(true);
+    }
+
+    public void ExitDesc()
+    {
+        DescObject.SetActive(false);
     }
 }
