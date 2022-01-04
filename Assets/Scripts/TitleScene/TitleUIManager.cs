@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class TitleUIManager : MonoBehaviour
 {
+
+    [SerializeField] Text bestScore;
+
     [Header("Setting")]
     [SerializeField] GameObject SettingObject;
     [SerializeField] Slider background_volume_slider;
@@ -19,6 +22,8 @@ public class TitleUIManager : MonoBehaviour
         InitializeValue();
         ExitSetting();
         ExitDesc();
+
+        bestScore.text = string.Format("{0:0}", StatusManager.Instance.best_record) + "s";
     }
 
     void Update()
