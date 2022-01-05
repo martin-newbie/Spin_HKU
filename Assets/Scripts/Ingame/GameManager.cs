@@ -17,11 +17,11 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] ObstacleController object_prefab;
     [SerializeField] int object_count = 10;
 
-    public float object_movespeed = 5f;
+    public float object_movespeed = 3f;
     [SerializeField] Transform object_spawn_parent;
     [SerializeField] Vector3 v_objectSpawnPosition;
 
-    [SerializeField] float spawnTime;
+    public float spawnTime;
     Coroutine cur_play_routine;
     bool isGameOver;
 
@@ -42,6 +42,7 @@ public class GameManager : Singleton<GameManager>
     {
         InitializeStack();
         cur_play_routine = StartCoroutine(ObstacleSpawn());
+        StartCoroutine(MoveSpeedDecrease());
         GameOverObj.SetActive(false);
         BestScoreImg.gameObject.SetActive(false);
     }
@@ -75,6 +76,19 @@ public class GameManager : Singleton<GameManager>
                 break;
             default:
                 break;
+        }
+    }
+
+    IEnumerator MoveSpeedDecrease()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3f);
+            object_movespeed += 0.05f;
+            spawnTime -= 0.05f;
+
+            object_movespeed = Mathf.Clamp(object_movespeed, 3f, 7f);
+            spawnTime = Mathf.Clamp(spawnTime, 1f, 3f);
         }
     }
 

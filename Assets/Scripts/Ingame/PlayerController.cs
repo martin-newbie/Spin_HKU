@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
             {
                 hp -= 10;
                 StartCoroutine(HitSlow(0.2f));
+                GameManager.Instance.object_movespeed = 3f;
+                GameManager.Instance.spawnTime = 3f;
             }
             
             other.GetComponent<Collider>().enabled = false;
