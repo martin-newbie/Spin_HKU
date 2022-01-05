@@ -55,6 +55,7 @@ public class GameManager : Singleton<GameManager>
                 if (isGameOver)
                 {
                     StopCoroutine(cur_play_routine);
+                    SoundManager.Instance.SoundPlay(1, false);
                     state = GameState.GameOver;
                 }
 

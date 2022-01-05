@@ -39,6 +39,7 @@ public class TitleUIManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("InGameScene");
+        SoundManager.Instance.SoundPlay(0, false);
     }
 
     void SetVolume()
@@ -50,21 +51,25 @@ public class TitleUIManager : MonoBehaviour
     public void EnterSetting()
     {
         SettingObject.SetActive(true);
+        SoundManager.Instance.SoundPlay(0, false);
     }
 
     public void ExitSetting()
     {
         SetVolume();
         SettingObject.SetActive(false);
+        SoundManager.Instance.SoundPlay(0, false);
     }
 
     public void EnterDesc()
     {
         DescObject.SetActive(true);
+        SoundManager.Instance.SoundPlay(0, false);
     }
 
     public void ExitDesc()
     {
         DescObject.SetActive(false);
+        SoundManager.Instance.SoundPlay(0, false);
     }
 }

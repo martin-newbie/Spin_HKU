@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 hp -= 10;
+                SoundManager.Instance.SoundPlay(2, false);
                 StartCoroutine(HitSlow(0.2f));
                 GameManager.Instance.object_movespeed = 3f;
                 GameManager.Instance.spawnTime = 3f;

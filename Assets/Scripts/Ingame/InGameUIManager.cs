@@ -42,6 +42,7 @@ public class InGameUIManager : MonoBehaviour
             Time.timeScale = 0f;
             PauseObj.SetActive(true);
             GameManager.Instance.state = GameState.GamePaused;
+            SoundManager.Instance.SoundPlay(0, false);
         }
     }
 
@@ -51,16 +52,19 @@ public class InGameUIManager : MonoBehaviour
         GameManager.Instance.state = GameState.GameActive;
         SetValue();
         PauseObj.SetActive(false);
+        SoundManager.Instance.SoundPlay(0, false);
     }
 
     public void MainMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("TitleScene");
+        SoundManager.Instance.SoundPlay(0, false);
     }
 
     public void Replay()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SoundManager.Instance.SoundPlay(0, false);
     }
 }
