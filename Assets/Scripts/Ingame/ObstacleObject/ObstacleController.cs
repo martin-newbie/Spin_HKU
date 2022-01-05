@@ -34,6 +34,7 @@ public class ObstacleController : PoolObject
         {
             int rand = Random.Range(0, GameManager.Instance.object_materials.Length);
             item.material = GameManager.Instance.object_materials[rand];
+            item.GetComponent<Collider>().enabled = true;
         }
 
         return obstacle_count[n];

@@ -34,10 +34,10 @@ public class PlayerController : MonoBehaviour
             else
             {
                 hp -= 10;
-                other.GetComponent<Collider>().enabled = false;
                 StartCoroutine(HitSlow(0.2f));
             }
-
+            
+            other.GetComponent<Collider>().enabled = false;
             hp = Mathf.Clamp(hp, 0, 100);
         }
     }

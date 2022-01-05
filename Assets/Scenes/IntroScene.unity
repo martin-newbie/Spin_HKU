@@ -279,8 +279,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   best_record: 0
-  background_volume: 0
-  effect_volume: 0
+  background_volume: 1
+  effect_volume: 1
+  path: 
 --- !u!1 &959588314
 GameObject:
   m_ObjectHideFlags: 0

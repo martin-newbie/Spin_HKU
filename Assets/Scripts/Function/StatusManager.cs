@@ -7,8 +7,8 @@ public class StatusManager : Singleton<StatusManager>
 {
     public float best_record;
 
-    public float background_volume;
-    public float effect_volume;
+    public float background_volume = 1;
+    public float effect_volume = 1;
 
     public string path;
 
