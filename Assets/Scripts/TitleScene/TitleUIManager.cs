@@ -24,6 +24,7 @@ public class TitleUIManager : MonoBehaviour
         ExitDesc();
 
         bestScore.text = string.Format("{0:0}", StatusManager.Instance.best_record) + "s";
+        SoundManager.Instance.BackgroundPlay(0);
     }
 
     void Update()

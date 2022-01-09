@@ -45,6 +45,7 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(MoveSpeedDecrease());
         GameOverObj.SetActive(false);
         BestScoreImg.gameObject.SetActive(false);
+        SoundManager.Instance.BackgroundPlay(1);
     }
 
     void Update()
@@ -71,7 +72,10 @@ public class GameManager : Singleton<GameManager>
                     BestScoreImg.gameObject.SetActive(true);
                     StatusManager.Instance.best_record = score;
                 }
+
+                SoundManager.Instance.SoundPlay(1, false);
                 object_movespeed = 0;
+                state = GameState.GamePaused;
                 break;
             case GameState.GamePaused:
                 break;
